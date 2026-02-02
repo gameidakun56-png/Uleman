@@ -1,9 +1,24 @@
 const openBtn = document.getElementById("openInvitation");
 const cover = document.getElementById("cover");
 const sambutan = document.getElementById("sambutan");
+const music = document.getElementById("bgMusic");
 
 openBtn.addEventListener("click", () => {
   document.body.classList.remove("lock-scroll");
+
+  music.play().catch(() => {
+    console.log("Autoplay dicegah browser");
+  });
+
+  cover.style.opacity = "0";
+  cover.style.transition = "0.8s";
+
+  setTimeout(() => {
+    cover.style.display = "none";
+    sambutan.classList.remove("hidden");
+    sambutan.scrollIntoView({ behavior: "smooth" });
+  }, 800);
+});
 
   cover.style.opacity = "0";
   cover.style.transition = "0.8s";
