@@ -92,6 +92,20 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
+.glass-top {
+  align-self: flex-start;
+  margin-top: 60px;
+}
+
+.glass-bottom {
+  align-self: flex-end;
+  margin-bottom: 60px;
+}
+
+.glass-center {
+  align-self: center;
+}
+
 h1, h2 {
   font-family: 'Playfair Display', serif;
 }
