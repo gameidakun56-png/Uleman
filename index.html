@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <meta charset="UTF-8">
   <title>The Wedding Of Khoiril & Nisa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="lock-scroll">
 
 <!-- ================= COVER ================= -->
-<section id="cover" class="section hero hidden" data-aos="fade-up">
 <section id="cover" class="cover">
-  <div class="glass">
+  <div class="glass" data-aos="fade-up">
     <p class="small">The Wedding Of</p>
     <h1>Khoiril & Nisa</h1>
 
@@ -30,9 +32,8 @@
 </section>
 
 <!-- ================= SAMBUTAN ================= -->
-<section id="sambutan" class="section hero hidden" data-aos="fade-up">
 <section id="sambutan" class="section hidden">
-  <div class="glass">
+  <div class="glass" data-aos="fade-up">
     <p class="small">The Wedding Of</p>
     <h1>Khoiril & Nisa</h1>
 
@@ -43,83 +44,82 @@
 </section>
 
 <!-- ================= MEMPELAI ================= -->
-<section id="mempelai" class="section hero hidden" data-aos="fade-up">
-<section class="section">
-  <div class="glass">
+<section id="mempelai-wanita" class="section">
+  <div class="glass" data-aos="fade-up">
     <h2>Mempelai Wanita</h2>
     <p>Nama Lengkap</p>
   </div>
 </section>
 
-<section class="section">
-  <div class="glass">
+<section id="mempelai-pria" class="section">
+  <div class="glass" data-aos="fade-up">
     <h2>Mempelai Pria</h2>
     <p>Nama Lengkap</p>
   </div>
 </section>
 
 <!-- ================= ACARA ================= -->
-<section id="acara" class="section hero hidden" data-aos="fade-up">
-<section class="section">
-  <div class="glass">
+<section id="acara" class="section">
+  <div class="glass" data-aos="fade-up">
     <h2>Acara</h2>
     <p>Akad & Resepsi</p>
   </div>
 </section>
 
 <!-- ================= GALERI ================= -->
-<section id="galeri" class="section hero hidden" data-aos="fade-up">
-<section class="section">
-  <div class="glass">
+<section id="galeri" class="section">
+  <div class="glass" data-aos="fade-up">
     <h2>Galeri</h2>
     <p>Foto Prewedding</p>
   </div>
 </section>
 
 <!-- ================= KISAH CINTA ================= -->
-<section id="kisah cinta" class="section hero hidden" data-aos="fade-up">
-<section class="section">
-  <div class="glass">
+<section id="kisah-cinta" class="section">
+  <div class="glass" data-aos="fade-up">
     <h2>Kisah Cinta</h2>
     <p>Cerita singkat perjalanan kami</p>
   </div>
 </section>
 
 <!-- ================= KADO DIGITAL ================= -->
-<section id="kado digital" class="section hero hidden" data-aos="fade-up">
-<section class="section">
-  <div class="glass">
+<section id="kado-digital" class="section">
+  <div class="glass" data-aos="fade-up">
     <h2>Kado Digital</h2>
     <p>Rekening / QRIS</p>
   </div>
 </section>
 
 <!-- ================= RSVP ================= -->
-<section id="rsvp" class="section hero hidden" data-aos="fade-up">
-<section class="section">
-  <div class="glass">
+<section id="rsvp" class="section">
+  <div class="glass" data-aos="fade-up">
     <h2>RSVP</h2>
     <p>Konfirmasi Kehadiran</p>
   </div>
 </section>
 
 <!-- ================= UCAPAN ================= -->
-<section id="ucapan" class="section hero hidden" data-aos="fade-up">
-<section class="section">
-  <div class="glass">
+<section id="ucapan" class="section">
+  <div class="glass" data-aos="fade-up">
     <h2>Ucapan Terimakasih</h2>
     <p>Doa & harapan</p>
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="assets/music/music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicToggle" class="music-btn hidden">🔊</button>
+
+<!-- FOOTER -->
 <footer>
   design by <strong>@oridarkmode</strong>
 </footer>
 
+<!-- SCRIPT -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="script.js"></script>
-<audio id="bgMusic" loop>
-  <source src="assets/music/music.mp3" type="audio/mpeg">
-</audio>
 </body>
 </html>
