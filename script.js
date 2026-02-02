@@ -1,3 +1,12 @@
+const guestNameEl = document.getElementById("guest-name");
+
+const params = new URLSearchParams(window.location.search);
+const guestName = params.get("to");
+
+if (guestName) {
+  guestNameEl.innerText = guestName.replace(/\+/g, " ");
+}
+
 const openBtn = document.getElementById("openInvitation");
 const cover = document.getElementById("cover");
 const sambutan = document.getElementById("sambutan");
