@@ -20,16 +20,6 @@ openBtn.addEventListener("click", () => {
   }, 800);
 });
 
-  cover.style.opacity = "0";
-  cover.style.transition = "0.8s";
-
-  setTimeout(() => {
-    cover.style.display = "none";
-    sambutan.classList.remove("hidden");
-    sambutan.scrollIntoView({ behavior: "smooth" });
-  }, 800);
-});
-
 /* ===== COUNTDOWN ===== */
 const targetDate = new Date("March 24, 2026 08:00:00").getTime();
 const countdownEl = document.getElementById("countdown");
