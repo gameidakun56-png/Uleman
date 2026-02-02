@@ -1,19 +1,26 @@
-const guestNameEl = document.getElementById("guest-name");
+AOS.init({
+  duration: 1000,
+  once: true
+});
 
+// ===== NAMA TAMU =====
+const guestNameEl = document.getElementById("guest-name");
 const params = new URLSearchParams(window.location.search);
 const guestName = params.get("to");
 
-if (guestName) {
+if (guestName && guestNameEl) {
   guestNameEl.innerText = guestName.replace(/\+/g, " ");
 }
 
+// ===== ELEMENT =====
 const openBtn = document.getElementById("openInvitation");
 const cover = document.getElementById("cover");
 const sambutan = document.getElementById("sambutan");
 const music = document.getElementById("bgMusic");
 const toggle = document.getElementById("musicToggle");
 
-function openInvitation() {
+// ===== OPEN INVITATION =====
+openBtn.addEventListener("click", () => {
   document.body.classList.remove("lock-scroll");
 
   cover.classList.add("hide");
@@ -21,17 +28,14 @@ function openInvitation() {
   setTimeout(() => {
     cover.style.display = "none";
     sambutan.classList.remove("hidden");
-    sambutan.classList.add("show");
 
-    // PLAY MUSIC (AMAN)
     music.volume = 0.7;
     music.play().catch(() => {});
-
     toggle.classList.remove("hidden");
   }, 800);
-}
+});
 
-// TOGGLE MUSIC
+// ===== MUSIC TOGGLE =====
 toggle.addEventListener("click", () => {
   if (music.paused) {
     music.play();
@@ -42,18 +46,19 @@ toggle.addEventListener("click", () => {
   }
 });
 
-/* ===== COUNTDOWN ===== */
-const targetDate = new Date("March 24, 2026 08:00:00").getTime();
+// ===== COUNTDOWN =====
 const countdownEl = document.getElementById("countdown");
+const targetDate = new Date("2026-03-24T08:00:00").getTime();
 
 setInterval(() => {
-  const now = new Date().getTime();
-  const distance = targetDate - now;
+  const now = Date.now();
+  const diff = targetDate - now;
+  if (diff < 0) return;
 
-  const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const s = Math.floor((distance % (1000 * 60)) / 1000);
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const m = Math.floor((diff / (1000 * 60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
 
   countdownEl.innerHTML = `${d} Hari • ${h} Jam • ${m} Menit • ${s} Detik`;
 }, 1000);
