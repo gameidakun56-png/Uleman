@@ -11,22 +11,35 @@ const openBtn = document.getElementById("openInvitation");
 const cover = document.getElementById("cover");
 const sambutan = document.getElementById("sambutan");
 const music = document.getElementById("bgMusic");
+const toggle = document.getElementById("musicToggle");
 
-openBtn.addEventListener("click", () => {
+function openInvitation() {
   document.body.classList.remove("lock-scroll");
 
-  music.play().catch(() => {
-    console.log("Autoplay dicegah browser");
-  });
-
-  cover.style.opacity = "0";
-  cover.style.transition = "0.8s";
+  cover.classList.add("hide");
 
   setTimeout(() => {
     cover.style.display = "none";
     sambutan.classList.remove("hidden");
-    sambutan.scrollIntoView({ behavior: "smooth" });
+    sambutan.classList.add("show");
+
+    // PLAY MUSIC (AMAN)
+    music.volume = 0.7;
+    music.play().catch(() => {});
+
+    toggle.classList.remove("hidden");
   }, 800);
+}
+
+// TOGGLE MUSIC
+toggle.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    toggle.innerText = "🔊";
+  } else {
+    music.pause();
+    toggle.innerText = "🔇";
+  }
 });
 
 /* ===== COUNTDOWN ===== */
