@@ -11,9 +11,6 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
-<audio id="bgMusic" loop>
-  <source src="assets/music.mp3" type="audio/mpeg">
-</audio>
 <body class="lock-scroll">
 
 <!-- ================= COVER ================= -->
@@ -112,5 +109,16 @@
 </footer>
 
 <script src="script.js"></script>
+<audio id="bgMusic" loop>
+  <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1200,
+    once: true
+  });
+</script>
 </body>
 </html>
