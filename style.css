@@ -30,6 +30,43 @@ body {
   pointer-events: none;
 }
 
+/* BACKGROUND PER SECTION */
+.bg-sambutan {
+  background: url("assets/bg/sambutan.jpg") center/cover no-repeat;
+}
+
+.bg-wanita {
+  background: url("assets/bg/wanita.jpg") center/cover no-repeat;
+}
+
+.bg-pria {
+  background: url("assets/bg/pria.jpg") center/cover no-repeat;
+}
+
+.bg-acara {
+  background: url("assets/bg/acara.jpg") center/cover no-repeat;
+}
+
+.bg-galeri {
+  background: url("assets/bg/galeri.jpg") center/cover no-repeat;
+}
+
+.bg-kisah {
+  background: url("assets/bg/kisah.jpg") center/cover no-repeat;
+}
+
+.bg-kado {
+  background: url("assets/bg/kado.jpg") center/cover no-repeat;
+}
+
+.bg-rsvp {
+  background: url("assets/bg/rsvp.jpg") center/cover no-repeat;
+}
+
+.bg-ucapan {
+  background: url("assets/bg/ucapan.jpg") center/cover no-repeat;
+}
+
 /* ===== SECTION ===== */
 .section {
   min-height: 100vh;
