@@ -20,20 +20,22 @@ const music = document.getElementById("bgMusic");
 const toggle = document.getElementById("musicToggle");
 
 // ===== OPEN INVITATION =====
-openBtn.addEventListener("click", () => {
-  document.body.classList.remove("lock-scroll");
+if (openBtn) {
+  openBtn.addEventListener("click", () => {
+    document.body.classList.remove("lock-scroll");
 
-  cover.classList.add("hide");
+    cover.classList.add("hide");
 
-  setTimeout(() => {
-    cover.style.display = "none";
-    sambutan.classList.remove("hidden");
+    setTimeout(() => {
+      cover.style.display = "none";
+      sambutan.classList.remove("hidden");
 
-    music.volume = 0.7;
-    music.play().catch(() => {});
-    toggle.classList.remove("hidden");
-  }, 800);
-});
+      music.volume = 0.7;
+      music.play().catch(() => {});
+      toggle.classList.remove("hidden");
+    }, 800);
+  });
+}
 
 // ===== MUSIC TOGGLE =====
 toggle.addEventListener("click", () => {
