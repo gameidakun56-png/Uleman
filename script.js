@@ -39,10 +39,10 @@ openBtn.addEventListener("click", () => {
 toggle.addEventListener("click", () => {
   if (music.paused) {
     music.play();
-    toggle.innerText = "🔊";
+    toggle.innerText = "▶️";
   } else {
     music.pause();
-    toggle.innerText = "🔇";
+    toggle.innerText = "⏸️";
   }
 });
 
