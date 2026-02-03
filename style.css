@@ -81,6 +81,15 @@ body {
   display: none;
 }
 
+/* ===== GLASS ===== */
+.no-glass {
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  padding: 0;
+}
+
 .glass {
   background: rgba(255,255,255,0.18);
   backdrop-filter: blur(8px);
