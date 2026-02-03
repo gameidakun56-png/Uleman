@@ -50,6 +50,83 @@ body {
   padding: 40px 20px;
 }
 
+/* ===== MEMPELAI SECTION ===== */
+.mempelai {
+  position: relative;
+  justify-content: flex-end;
+  padding-bottom: 40px;
+}
+
+/* Judul atas */
+.title-top {
+  position: absolute;
+  top: 36px;
+  width: 100%;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+/* Glass card bawah */
+.mempelai-glass {
+  width: 90%;
+  max-width: 360px;
+  text-align: center;
+  animation: none;
+}
+
+/* Nama */
+.mempelai-glass h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+/* Deskripsi */
+.mempelai-glass .desc {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.mempelai-glass .parent {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* ===== INSTAGRAM BUTTON ===== */
+.ig-btn {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 13px;
+  text-decoration: none;
+  color: white;
+
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.35);
+
+  transition: all .3s ease;
+}
+
+/* Icon */
+.ig-btn img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+}
+
+/* Hover */
+.ig-btn:hover {
+  background: rgba(255,255,255,0.28);
+  transform: translateY(-2px);
+}
+
 .hidden {
   display: none;
 }
