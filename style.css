@@ -30,47 +30,20 @@ body {
   pointer-events: none;
 }
 
-/* BACKGROUND PER SECTION */
-.bg-sambutan {
-  background: url("assets/bg-sambutan.jpg") center/cover no-repeat;
-}
-
-.bg-mempelaiwanita {
-  background: url("assets/bg-mempelaiwanita.jpg") center/cover no-repeat;
-}
-
-.bg-mempelaipria {
-  background: url("assets/bg-mempelaipria.jpg") center/cover no-repeat;
-}
-
-.bg-acara {
-  background: url("assets/bg-acara.jpg") center/cover no-repeat;
-}
-
-.bg-galeri {
-  background: url("assets/bg-galeri.jpg") center/cover no-repeat;
-}
-
-.bg-kisahcinta {
-  background: url("assets/bg-kisahcinta.jpg") center/cover no-repeat;
-}
-
-.bg-kadodigital {
-  background: url("assets/bg-kadodigital.jpg") center/cover no-repeat;
-}
-
-.bg-rsvp {
-  background: url("assets/bg-rsvp.jpg") center/cover no-repeat;
-}
-
-.bg-ucapan {
-  background: url("assets/bg-ucapan.jpg") center/cover no-repeat;
-}
+/* ===== BACKGROUND ===== */
+.bg-sambutan { background: url("assets/bg-sambutan.jpg") center/cover no-repeat; }
+.bg-mempelaiwanita { background: url("assets/bg-mempelaiwanita.jpg") center/cover no-repeat; }
+.bg-mempelaipria { background: url("assets/bg-mempelaipria.jpg") center/cover no-repeat; }
+.bg-acara { background: url("assets/bg-acara.jpg") center/cover no-repeat; }
+.bg-galeri { background: url("assets/bg-galeri.jpg") center/cover no-repeat; }
+.bg-kisahcinta { background: url("assets/bg-kisahcinta.jpg") center/cover no-repeat; }
+.bg-kadodigital { background: url("assets/bg-kadodigital.jpg") center/cover no-repeat; }
+.bg-rsvp { background: url("assets/bg-rsvp.jpg") center/cover no-repeat; }
+.bg-ucapan { background: url("assets/bg-ucapan.jpg") center/cover no-repeat; }
 
 /* ===== SECTION ===== */
 .section {
   min-height: 100vh;
-  background: url('assets/bg-section.jpg') center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,24 +55,22 @@ body {
 }
 
 /* ===== GLASS ===== */
-.no-glass {
-  background: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  box-shadow: none;
-  padding: 0;
-}
-
 .glass {
   background: rgba(255,255,255,0.18);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border-radius: 20px;
   padding: 28px 24px;
   max-width: 350px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-  animation: float 6s ease-in-out infinite;
   text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  animation: float 6s ease-in-out infinite;
+}
+
+.no-glass {
+  background: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  padding: 0;
 }
 
 @keyframes float {
@@ -107,32 +78,18 @@ body {
   50% { transform: translateY(-6px); }
 }
 
-.glass-top {
-  align-self: flex-start;
-  margin-top: 60px;
-}
+.glass-top { align-self: flex-start; margin-top: 60px; }
+.glass-bottom { align-self: flex-end; margin-bottom: 60px; }
+.glass-center { align-self: center; }
 
-.glass-bottom {
-  align-self: flex-end;
-  margin-bottom: 60px;
-}
-
-.glass-center {
-  align-self: center;
-}
-
-h1, h2 {
-  font-family: 'Playfair Display', serif;
-}
+h1, h2 { font-family: 'Playfair Display', serif; }
 
 .small {
   font-size: 14px;
   letter-spacing: 2px;
 }
 
-.space {
-  height: 30px;
-}
+.space { height: 30px; }
 
 button {
   margin-top: 20px;
@@ -140,7 +97,6 @@ button {
   border-radius: 30px;
   border: none;
   background: white;
-  color: black;
   font-weight: 600;
   cursor: pointer;
 }
@@ -151,25 +107,17 @@ button.secondary {
   color: white;
 }
 
-#countdown {
-  margin: 15px 0;
-  font-size: 13px;
-  opacity: 0.9;
-}
-
 /* MUSIC */
 .music-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  border-radius: 50%;
   width: 44px;
   height: 44px;
+  border-radius: 50%;
   border: none;
   background: rgba(255,255,255,.25);
-  backdrop-filter: blur(10px);
   color: white;
-  font-size: 18px;
   z-index: 999;
 }
 
@@ -177,11 +125,6 @@ button.secondary {
 footer {
   padding: 16px;
   text-align: center;
-  background: #000;
   font-size: 10px;
   opacity: .7;
-}
-
-footer strong {
-  font-weight: 600;
 }
