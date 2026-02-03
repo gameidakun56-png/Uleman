@@ -20,14 +20,18 @@ const music = document.getElementById("bgMusic");
 const toggle = document.getElementById("musicToggle");
 
 // ===== OPEN INVITATION =====
-if (openBtn && cover && sambutan) {
+if (openBtn && cover) {
   openBtn.addEventListener("click", () => {
     document.body.classList.remove("lock-scroll");
+
     cover.classList.add("hide");
 
     setTimeout(() => {
       cover.style.display = "none";
-      sambutan.classList.remove("hidden");
+
+      document.querySelectorAll(".section").forEach(section => {
+        section.classList.remove("hidden");
+      });
 
       if (music) {
         music.volume = 0.7;
