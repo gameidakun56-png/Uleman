@@ -64,3 +64,7 @@ setInterval(() => {
 
   countdownEl.innerHTML = `${d} Hari • ${h} Jam • ${m} Menit • ${s} Detik`;
 }, 1000);
+
+if (!openBtn) {
+  document.body.classList.remove("lock-scroll");
+}
