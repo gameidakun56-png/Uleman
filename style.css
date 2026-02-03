@@ -35,11 +35,11 @@ body {
   background: url("assets/bg-sambutan.jpg") center/cover no-repeat;
 }
 
-.bg-wanita {
+.bg-mempelaiwanita {
   background: url("assets/bg-mempelaiwanita.jpg") center/cover no-repeat;
 }
 
-.bg-pria {
+.bg-mempelaipria {
   background: url("assets/bg-mempelaipria.jpg") center/cover no-repeat;
 }
 
@@ -51,11 +51,11 @@ body {
   background: url("assets/bg-galeri.jpg") center/cover no-repeat;
 }
 
-.bg-kisah {
+.bg-kisahcinta {
   background: url("assets/bg-kisahcinta.jpg") center/cover no-repeat;
 }
 
-.bg-kado {
+.bg-kadodigital {
   background: url("assets/bg-kadodigital.jpg") center/cover no-repeat;
 }
 
