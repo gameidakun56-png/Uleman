@@ -67,8 +67,7 @@ body.lock-scroll .section {
 
 /* ===== HIDDEN (AMAN UNTUK AOS) ===== */
 .hidden {
-  opacity: 0;
-  pointer-events: none;
+  display: none;
 }
 
 /* ===== MEMPELAI ===== */
