@@ -1,163 +1,264 @@
-html,body{
-width:100%;
-height:100%;
-overflow-x:hidden;
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
 }
 
-body{
-font-family:'Poppins',sans-serif;
-background:#000;
-color:#fff;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.lock-scroll{
-overflow:hidden;
-height:100vh;
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: #fff;
 }
 
-/* COVER */
-.cover{
-position:fixed;
-inset:0;
-height:100vh;
-background:url('assets/bg-cover.jpg') center/cover no-repeat;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
+/* ===== LOCK SCROLL (COVER) ===== */
+.lock-scroll {
+  overflow: hidden;
+  height: 100vh;
 }
 
-.cover.hide{
-opacity:0;
-transform:scale(1.05);
-transition:.8s;
-pointer-events:none;
+body.lock-scroll .section {
+  position: fixed;
+  top: 100vh;
+  left: 0;
+  width: 100%;
 }
 
-/* SECTION */
-.section{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:40px 20px;
-position:relative;
+/* ===== COVER ===== */
+.cover {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background: url('assets/bg-cover.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-/* BACKGROUND */
-.bg-sambutan{background:url("assets/bg-sambutan.jpg") center/cover no-repeat;}
-.bg-mempelaiwanita{background:url("assets/bg-mempelaiwanita.jpg") center/cover no-repeat;}
-.bg-mempelaipria{background:url("assets/bg-mempelaipria.jpg") center/cover no-repeat;}
-.bg-acara{background:url("assets/bg-acara.jpg") center/cover no-repeat;}
-.bg-galeri{background:url("assets/bg-galeri.jpg") center/cover no-repeat;}
-.bg-kisahcinta{background:url("assets/bg-kisahcinta.jpg") center/cover no-repeat;}
-.bg-kadodigital{background:url("assets/bg-kadodigital.jpg") center/cover no-repeat;}
-.bg-rsvp{background:url("assets/bg-rsvp.jpg") center/cover no-repeat;}
-.bg-ucapan{background:url("assets/bg-ucapan.jpg") center/cover no-repeat;}
-
-.hidden{
-display:none;
+/* ===== SECTION UMUM ===== */
+.section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
 }
 
-/* GLASS */
-.glass{
-background:rgba(255,255,255,.18);
-backdrop-filter:blur(10px);
-border-radius:22px;
-padding:26px 22px;
-max-width:360px;
-text-align:center;
-box-shadow:0 10px 28px rgba(0,0,0,.28);
+body:not(.lock-scroll) .section {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
 }
 
-.no-glass{
-background:none;
-backdrop-filter:none;
-box-shadow:none;
-padding:0;
+/* ===== BACKGROUND ===== */
+.bg-sambutan { background: url("assets/bg-sambutan.jpg") center/cover no-repeat; }
+.bg-mempelaiwanita { background: url("assets/bg-mempelaiwanita.jpg") center/cover no-repeat; }
+.bg-mempelaipria { background: url("assets/bg-mempelaipria.jpg") center/cover no-repeat; }
+.bg-acara { background: url("assets/bg-acara.jpg") center/cover no-repeat; }
+.bg-galeri { background: url("assets/bg-galeri.jpg") center/cover no-repeat; }
+.bg-kisahcinta { background: url("assets/bg-kisahcinta.jpg") center/cover no-repeat; }
+.bg-kadodigital { background: url("assets/bg-kadodigital.jpg") center/cover no-repeat; }
+.bg-rsvp { background: url("assets/bg-rsvp.jpg") center/cover no-repeat; }
+.bg-ucapan { background: url("assets/bg-ucapan.jpg") center/cover no-repeat; }
+
+/* ===== GLASS ===== */
+.glass {
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(10px);
+  border-radius: 22px;
+  padding: 26px 22px;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(0,0,0,.28);
 }
 
-.glass-top{align-self:flex-start;margin-top:60px;}
-.glass-bottom{margin-bottom:40px;}
-.glass-center{align-self:center;}
-
-h1,h2{font-family:'Playfair Display',serif;}
-
-.small{
-font-size:14px;
-letter-spacing:2px;
+.no-glass {
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  padding: 0;
 }
 
-.space{height:30px;}
+.glass-top { align-self: flex-start; margin-top: 60px; }
+.glass-bottom { margin-bottom: 40px; }
+.glass-center { align-self: center; }
 
-button{
-margin-top:20px;
-padding:12px 25px;
-border-radius:30px;
-border:none;
-background:white;
-font-weight:600;
-cursor:pointer;
+/* ===== TEKS ===== */
+h1, h2 {
+  font-family: 'Playfair Display', serif;
 }
 
-button.secondary{
-background:transparent;
-border:1px solid white;
-color:white;
+.small {
+  font-size: 14px;
+  letter-spacing: 2px;
 }
 
-/* MUSIC */
-.music-toggle{
-position:fixed;
-bottom:18px;
-right:18px;
-width:46px;
-height:46px;
-display:flex;
-justify-content:center;
-align-items:center;
-background:rgba(255,255,255,.18);
-backdrop-filter:blur(10px);
-border-radius:50%;
-z-index:9999;
+.space {
+  height: 30px;
 }
 
-.music-toggle.hidden{display:none;}
-
-.music-disc{
-width:29px;
-height:29px;
-border-radius:50%;
-background:rgba(255,255,255,.3);
-display:flex;
-justify-content:center;
-align-items:center;
+/* ===== BUTTON ===== */
+button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: none;
+  background: white;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.music-disc.playing{
-animation:spin 4s linear infinite;
+button.secondary {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
 }
 
-.music-icon{
-font-size:10px;
-color:white;
-pointer-events:none;
+/* ===== MEMPELAI FIX TOTAL ===== */
+.mempelai {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px 36px;
+  text-align: center;
 }
 
-@keyframes spin{
-from{transform:rotate(0)}
-to{transform:rotate(360deg)}
+.title-top {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  z-index: 2;
 }
 
-footer{
-padding:16px;
-text-align:center;
-font-size:10px;
-opacity:.7;
+.mempelai-glass {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+}
+
+.mempelai-glass h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.mempelai-glass .desc {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.mempelai-glass .parent {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* ===== INSTAGRAM BUTTON FIX ===== */
+.ig-btn {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 22px;
+  max-width: 220px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: white;
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.35);
+  transition: .3s ease;
+}
+
+.ig-btn img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+}
+
+.ig-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== HIDDEN ===== */
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===== MUSIC ===== */
+.music-toggle {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  z-index: 9999;
+}
+
+.music-toggle.hidden {
+  display: none;
+}
+
+.music-disc {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.music-disc.playing {
+  animation: spin 4s linear infinite;
+}
+
+.music-icon {
+  font-size: 10px;
+  color: white;
+  transform: translateX(1px);
+}
+
+@keyframes spin {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 16px;
+  text-align: center;
+  font-size: 10px;
+  opacity: .7;
 }
