@@ -30,11 +30,13 @@ if (guestName && guestNameEl) {
 // ===== OPEN INVITATION =====
 if (openBtn && cover) {
   openBtn.addEventListener("click", () => {
-    document.body.classList.remove("lock-scroll");
-    cover.classList.add("hide");
+  window.scrollTo(0, 0);
+  document.body.classList.remove("lock-scroll");
+  cover.classList.add("hide");
 
-    setTimeout(() => {
-      cover.style.display = "none";
+  setTimeout(() => {
+    cover.style.display = "none";
+    cover.style.position = "relative";
 
       document.querySelectorAll(".section").forEach((section, i) => {
   setTimeout(() => {
