@@ -39,10 +39,14 @@ if (openBtn && cover) {
     document.body.classList.remove("lock-scroll");
 
     document.querySelectorAll(".section").forEach(section => {
-      section.classList.remove("hidden");
-      section.style.position = "relative";
-      section.style.top = "auto";
-    });
+  section.classList.remove("hidden");
+
+  // reset paksa (WAJIB)
+  section.style.position = "";
+  section.style.top = "";
+  section.style.left = "";
+  section.style.width = "";
+});
 
     if (!music) return;
 
