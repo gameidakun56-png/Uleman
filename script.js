@@ -47,14 +47,23 @@ if (openBtn && cover) {
 }
 
 // ===== MUSIC TOGGLE =====
+const disc = document.querySelector(".music-disc");
+const icon = document.querySelector(".music-icon");
+
 if (toggle && music) {
   toggle.addEventListener("click", () => {
     if (music.paused) {
       music.play();
-      toggle.innerText = "⏸️";
-    } else {
+      const disc = document.querySelector(".music-disc");
+      const icon = document.querySelector(".music-icon");
+
+      if (disc && icon) {
+  disc.classList.add("playing");
+  icon.innerText = "❚❚";  
+    }
       music.pause();
-      toggle.innerText = "▶️";
+      disc.classList.remove("playing");
+      icon.innerText = "▶";
     }
   });
 }
