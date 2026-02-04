@@ -200,22 +200,25 @@ button.secondary {
 }
 
 /* MUSIC */
+/* MUSIC */
 .music-toggle {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 56px;
-  height: 56px;
+  bottom: 18px;
+  right: 18px;
+  width: 46px;
+  height: 46px;
   z-index: 9999;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.25);
 }
 
 .music-toggle.hidden {
@@ -223,10 +226,11 @@ button.secondary {
 }
 
 .music-disc {
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.35);
+
+  background: rgba(255,255,255,0.28);
 
   display: flex;
   align-items: center;
@@ -234,12 +238,14 @@ button.secondary {
 }
 
 .music-disc.playing {
-  animation: spin 4s linear infinite;
+  animation: spin 5s linear infinite;
 }
 
 .music-icon {
-  font-size: 18px;
+  font-size: 13px;
   color: #fff;
+  line-height: 1;
+  transform: translateX(1px); /* koreksi optik icon ▶ */
   pointer-events: none;
 }
 
