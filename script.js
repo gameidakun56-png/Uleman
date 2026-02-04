@@ -34,21 +34,26 @@ openBtn.addEventListener("click", () => {
     cover.style.display = "none";
     document.body.classList.remove("lock-scroll");
 
-    document.querySelectorAll(".section").forEach(sec => {
-      sec.classList.remove("hidden");
-      sec.style.opacity = "1";
-      sec.style.position = "";
-      sec.style.top = "";
+    document.querySelectorAll(".section").forEach(section => {
+      section.classList.remove("hidden");
+
+      // PAKSA RESET VISUAL
+      section.style.display = "flex";
+      section.style.opacity = "1";
+      section.style.transform = "none";
     });
 
+    // REFRESH AOS TOTAL
     AOS.refreshHard();
 
     // MUSIC
-    music.volume = 0.7;
-    music.play().catch(()=>{});
-    toggle.classList.remove("hidden");
-    disc.classList.add("playing");
-    icon.innerText = "❚❚";
+    if (music) {
+      music.volume = 0.7;
+      music.play().catch(()=>{});
+      toggle.classList.remove("hidden");
+      disc.classList.add("playing");
+      icon.innerText = "❚❚";
+    }
 
   }, 700);
 });
