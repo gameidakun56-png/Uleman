@@ -28,11 +28,52 @@ section {
 
 /* ================= COVER ================= */
 .cover {
-  background: #000;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  background: url("assets/bg-cover.jpg") center/cover no-repeat;
 }
 
 .section {
-  padding: 80px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.bg-sambutan {
+  background: url("assets/bg-sambutan.jpg") center/cover no-repeat;
+}
+
+.bg-mempelaiwanita {
+  background: url("assets/bg-mempelaiwanita.jpg") center/cover no-repeat;
+}
+
+.bg-mempelaipria {
+  background: url("assets/bg-mempelaipria.jpg") center/cover no-repeat;
+}
+
+.bg-acara {
+  background: url("assets/bg-acara.jpg") center/cover no-repeat;
+}
+
+.bg-galeri {
+  background: url("assets/bg-galeri.jpg") center/cover no-repeat;
+}
+
+.bg-kisahcinta {
+  background: url("assets/bg-kisahcinta.jpg") center/cover no-repeat;
+}
+
+.bg-kadodigital {
+  background: url("assets/bg-kadodigital.jpg") center/cover no-repeat;
+}
+
+.bg-rsvp {
+  background: url("assets/bg-rsvp.jpg") center/cover no-repeat;
+}
+
+.bg-ucapan {
+  background: url("assets/bg-ucapan.jpg") center/cover no-repeat;
 }
 
 /* ================= GLASS ================= */
