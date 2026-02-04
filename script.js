@@ -1,6 +1,6 @@
 // ===== ELEMENT =====
 const openBtn = document.getElementById("openInvitation");
-const cover = document.getElementById("cover");
+const cover   = document.getElementById("cover");
 
 const music  = document.getElementById("bgMusic");
 const toggle = document.getElementById("musicToggle");
@@ -15,7 +15,7 @@ AOS.init({
   offset: 80
 });
 
-// ===== GUEST NAME =====
+// ===== NAMA TAMU =====
 const guestNameEl = document.getElementById("guest-name");
 const params = new URLSearchParams(window.location.search);
 const guestName = params.get("to");
@@ -27,6 +27,7 @@ if (guestName && guestNameEl) {
 // ===== OPEN INVITATION =====
 openBtn.addEventListener("click", () => {
   window.scrollTo(0, 0);
+
   cover.style.opacity = "0";
 
   setTimeout(() => {
@@ -35,16 +36,19 @@ openBtn.addEventListener("click", () => {
 
     document.querySelectorAll(".section").forEach(sec => {
       sec.classList.remove("hidden");
+      sec.style.opacity = "1";
+      sec.style.position = "";
+      sec.style.top = "";
     });
 
     AOS.refreshHard();
 
+    // MUSIC
     music.volume = 0.7;
-    music.play().then(() => {
-      disc.classList.add("playing");
-      icon.innerText = "❚❚";
-      toggle.classList.remove("hidden");
-    });
+    music.play().catch(()=>{});
+    toggle.classList.remove("hidden");
+    disc.classList.add("playing");
+    icon.innerText = "❚❚";
 
   }, 700);
 });
@@ -61,22 +65,3 @@ toggle.addEventListener("click", () => {
     icon.innerText = "▶";
   }
 });
-
-// ===== COUNTDOWN =====
-const countdownEl = document.getElementById("countdown");
-const targetDate = new Date("2026-03-24T08:00:00").getTime();
-
-if (countdownEl) {
-  setInterval(() => {
-    const diff = targetDate - Date.now();
-    if (diff <= 0) return;
-
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff / 3600000) % 24);
-    const m = Math.floor((diff / 60000) % 60);
-    const s = Math.floor((diff / 1000) % 60);
-
-    countdownEl.innerHTML =
-      `${d} Hari • ${h} Jam • ${m} Menit • ${s} Detik`;
-  }, 1000);
-}
