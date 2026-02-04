@@ -10,10 +10,11 @@ const icon   = document.querySelector(".music-icon");
 
 // ===== AOS INIT =====
 AOS.init({
-  duration: 900,
-  easing: 'ease-out-cubic',
+  duration: 1200,
+  easing: 'ease-in-out-cubic',
   once: true,
-  offset: 120
+  offset: 80,
+  delay: 50
 });
 
 
