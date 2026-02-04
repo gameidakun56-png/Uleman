@@ -212,27 +212,14 @@ button.secondary {
   align-items: center;
   justify-content: center;
 
+  background: rgba(255,255,255,0.25);
   backdrop-filter: blur(12px);
-  background: rgba(255,255,255,0.2);
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.3);
 }
 
 .music-toggle.hidden {
   display: none;
-}
-
-.music-btn {
-  position: fixed;
-  bottom: 22px;
-  right: 22px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: none;
-  padding: 0;
-  background: transparent;
-  z-index: 999;
 }
 
 .music-disc {
@@ -244,23 +231,21 @@ button.secondary {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  transition: transform 0.3s ease;
 }
 
 .music-disc.playing {
   animation: spin 4s linear infinite;
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-/* ICON */
 .music-icon {
   font-size: 18px;
   color: #fff;
+  pointer-events: none;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 /* ROTATE */
