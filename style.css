@@ -199,7 +199,7 @@ button.secondary {
   color: white;
 }
 
-//* MUSIC *//
+/* MUSIC */
 .music-btn {
   position: fixed;
   bottom: 22px;
@@ -248,7 +248,7 @@ button.secondary {
   to   { transform: rotate(360deg); }
 }
 
-//* FOOTER *//
+/* FOOTER */
 footer {
   padding: 16px;
   text-align: center;
