@@ -1,181 +1,128 @@
-// ===== SCRIPT TERSTRUKTUR DAN TAHAN GUGAT =====
-(() => {
-  // Utility
-  const $ = sel => document.querySelector(sel);
-  const $$ = sel => Array.from(document.querySelectorAll(sel));
-  const safeText = (el, text) => { if (el) el.textContent = text; };
+// ===== ELEMENT =====
+const openBtn = document.getElementById("openInvitation");
+const cover = document.getElementById("cover");
 
-  // ===== ELEMENT =====
-  const openBtn = document.getElementById("openInvitation");
-  const cover = document.getElementById("cover");
+const music  = document.getElementById("bgMusic");
+const toggle = document.getElementById("musicToggle");
+const disc   = document.querySelector(".music-disc");
+const icon   = document.querySelector(".music-icon");
 
-  const music = document.getElementById("bgMusic");
-  const toggle = document.getElementById("musicToggle");
-  const disc = document.querySelector(".music-disc");
-  const icon = document.querySelector(".music-icon");
-
-  // ===== AOS INIT (cek ketersediaan AOS) =====
+// ===== AOS INIT =====
+function initAOS() {
   if (window.AOS && typeof AOS.init === "function") {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({
+      duration: 1000,        // default animation duration
+      easing: 'ease-in-out', // smoother easing
+      offset: 120,           // trigger offset (px)
+      once: true,            // animate only once while scrolling down
+      mirror: false,         // whether elements should animate out while scrolling past them
+      delay: 0
+    });
   }
+}
 
-  // ===== NAMA TAMU =====
-  const guestNameEl = document.getElementById("guest-name");
-  try {
-    const params = new URLSearchParams(window.location.search);
-    const raw = params.get("to");
-    if (raw && guestNameEl) {
-      // Ganti + jadi spasi dulu lalu decodeURIComponent
-      const decoded = decodeURIComponent(raw.replace(/\+/g, " "));
-      guestNameEl.innerText = decoded;
-    }
-  } catch (e) {
-    console.warn("Failed to parse guest name:", e);
-  }
+// Refresh AOS after load/assets ready to ensure correct offsets
+window.addEventListener('load', () => {
+  initAOS();
+  if (window.AOS && typeof AOS.refresh === 'function') AOS.refresh();
+  document.body.classList.remove("lock-scroll");
+});
 
-  // ===== HELPERS MUSIC UI =====
-  const updateMusicUI = (isPlaying) => {
-    if (isPlaying) {
-      disc?.classList.add("playing");
-      if (icon) icon.innerText = "❚❚";
-      toggle?.classList.remove("hidden");
-      toggle?.setAttribute("aria-pressed", "true");
-      toggle?.setAttribute("aria-label", "Pause music");
-    } else {
-      disc?.classList.remove("playing");
-      if (icon) icon.innerText = "▶";
-      toggle?.classList.remove("hidden");
-      toggle?.setAttribute("aria-pressed", "false");
-      toggle?.setAttribute("aria-label", "Play music");
-    }
-  };
+// Also init AOS on DOMContentLoaded as fallback
+document.addEventListener('DOMContentLoaded', initAOS);
 
-  // Inisialisasi state musik (tidak otomatis play di sini)
-  if (music) {
-    music.preload = "auto";
-    music.volume = (typeof music.volume === "number") ? music.volume : 0.7;
-    // sync UI ke keadaan awal audio (paused atau playing)
-    updateMusicUI(!music.paused && !music.ended);
-  }
 
-  // ===== OPEN INVITATION =====
-  const openInvitation = () => {
+// ===== NAMA TAMU =====
+const guestNameEl = document.getElementById("guest-name");
+const params = new URLSearchParams(window.location.search);
+const guestName = params.get("to");
+
+if (guestName && guestNameEl) {
+  guestNameEl.innerText = guestName.replace(/\+/g, " ");
+}
+
+
+// ===== OPEN INVITATION =====
+if (openBtn && cover) {
+  openBtn.addEventListener("click", () => {
+    // update aria-expanded for accessibility
+    const expanded = openBtn.getAttribute('aria-expanded') === 'true';
+    openBtn.setAttribute('aria-expanded', String(!expanded));
+
     document.body.classList.remove("lock-scroll");
-    cover?.classList.add("hide");
+    cover.classList.add("hide");
 
     setTimeout(() => {
-      if (cover) cover.style.display = "none";
+      cover.style.display = "none";
 
-      $$(".section").forEach(sec => sec.classList.remove("hidden"));
+      document.querySelectorAll(".section").forEach(sec => {
+        sec.classList.remove("hidden");
+      });
+
+      // Pastikan AOS menghitung ulang elemen yang baru terlihat
+      if (window.AOS) {
+        if (typeof AOS.refreshHard === 'function') {
+          // refreshHard lebih agresif dan biasanya memaksa animasi muncul
+          AOS.refreshHard();
+        } else if (typeof AOS.refresh === 'function') {
+          AOS.refresh();
+        }
+        // lalu paksakan event scroll agar AOS mem-trigger animasi yang berada di viewport
+        // beri delay kecil supaya browser menerapkan perubahan layout dahulu
+        setTimeout(() => {
+          window.dispatchEvent(new Event('scroll'));
+        }, 40);
+      }
 
       if (!music) return;
 
-      // Coba play (bisa diblokir oleh browser jika bukan gesture)
       music.volume = 0.7;
       music.play()
         .then(() => {
-          updateMusicUI(true);
+          disc?.classList.add("playing");
+          if (icon) icon.innerText = "❚❚";
+          toggle?.classList.remove("hidden");
         })
-        .catch(err => {
-          // Jika play diblokir, tetap tunjukkan kontrol supaya user bisa start audio
-          console.warn("Music blocked (autoplay):", err);
-          updateMusicUI(false);
-        });
+        .catch(err => console.warn("Music blocked:", err));
 
     }, 800);
-  };
-
-  if (openBtn && cover) {
-    openBtn.addEventListener("click", openInvitation, { once: true });
-
-    // Aksesibilitas: Enter/Space juga membuka
-    openBtn.addEventListener("keydown", (ev) => {
-      if (ev.key === "Enter" || ev.key === " ") {
-        ev.preventDefault();
-        openInvitation();
-      }
-    });
-  }
-
-  // ===== MUSIC TOGGLE =====
-  if (toggle && music) {
-    toggle.addEventListener("click", () => {
-      if (music.paused) {
-        music.play()
-          .then(() => updateMusicUI(true))
-          .catch(err => {
-            console.warn("Play failed:", err);
-            updateMusicUI(false);
-          });
-      } else {
-        music.pause();
-        updateMusicUI(false);
-      }
-    });
-  }
-
-  // ===== COUNTDOWN =====
-  const countdownEl = document.getElementById("countdown");
-
-  // Dapatkan target date:
-  // 1) data-target pada elemen #countdown (ISO), 2) meta[name="event-date"], 3) fallback const
-  const fallbackDateISO = "2026-03-24T08:00:00";
-  const getTargetTime = () => {
-    if (!countdownEl) return new Date(fallbackDateISO).getTime();
-    const attr = countdownEl.dataset?.target;
-    if (attr) {
-      const t = Date.parse(attr);
-      if (!Number.isNaN(t)) return t;
-    }
-    const meta = document.querySelector('meta[name="event-date"]')?.content;
-    if (meta) {
-      const t = Date.parse(meta);
-      if (!Number.isNaN(t)) return t;
-    }
-    return new Date(fallbackDateISO).getTime();
-  };
-
-  let countdownIntervalId = null;
-  const two = n => String(n).padStart(2, "0");
-
-  const startCountdown = () => {
-    if (!countdownEl) return;
-    const targetTime = getTargetTime();
-
-    const tick = () => {
-      const diff = targetTime - Date.now();
-
-      if (diff <= 0) {
-        countdownEl.innerHTML = "Acara sudah dimulai";
-        if (countdownIntervalId) {
-          clearInterval(countdownIntervalId);
-          countdownIntervalId = null;
-        }
-        return;
-      }
-
-      const d = Math.floor(diff / 86400000);
-      const h = Math.floor((diff / 3600000) % 24);
-      const m = Math.floor((diff / 60000) % 60);
-      const s = Math.floor((diff / 1000) % 60);
-
-      // Format: 1 Hari • 05 Jam • 04 Menit • 09 Detik
-      countdownEl.innerHTML = `${d} Hari • ${two(h)} Jam • ${two(m)} Menit • ${two(s)} Detik`;
-    };
-
-    tick();
-    countdownIntervalId = setInterval(tick, 1000);
-  };
-
-  // Start saat DOM siap
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", startCountdown, { once: true });
-  } else {
-    startCountdown();
-  }
-
-  // ===== FAILSAFE (pastikan body tidak terkunci jika sesuatu gagal) =====
-  window.addEventListener("load", () => {
-    document.body.classList.remove("lock-scroll");
   });
-})();
+}
+
+
+// ===== MUSIC TOGGLE =====
+if (toggle && music) {
+  toggle.addEventListener("click", () => {
+    if (music.paused) {
+      music.play()
+        .then(() => {
+          disc?.classList.add("playing");
+          if (icon) icon.innerText = "❚❚";
+        })
+        .catch(err => console.warn("Play failed:", err));
+    } else {
+      music.pause();
+      disc?.classList.remove("playing");
+      if (icon) icon.innerText = "▶";
+    }
+  });
+}
+
+
+// ===== COUNTDOWN =====
+const countdownEl = document.getElementById("countdown");
+const targetDate = new Date("2026-03-24T08:00:00").getTime();
+
+if (countdownEl) {
+  setInterval(() => {
+    const diff = targetDate - Date.now();
+    if (diff <= 0) return;
+
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff / 3600000) % 24);
+    const m = Math.floor((diff / 60000) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    countdownEl.innerHTML = `${d} Hari • ${h} Jam • ${m} Menit • ${s} Detik`;
+  }, 1000);
+}
