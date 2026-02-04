@@ -10,8 +10,10 @@ const icon   = document.querySelector(".music-icon");
 
 // ===== AOS INIT =====
 AOS.init({
-  duration: 1000,
-  once: true
+  duration: 900,
+  easing: 'ease-out-cubic',
+  once: true,
+  offset: 120
 });
 
 
@@ -34,14 +36,12 @@ if (openBtn && cover) {
     setTimeout(() => {
       cover.style.display = "none";
 
-      document.querySelectorAll(".section").forEach(sec => {
-  sec.classList.remove("hidden");
+      document.querySelectorAll(".section").forEach((section, i) => {
+  setTimeout(() => {
+    section.classList.remove("hidden");
+    AOS.refresh();
+  }, i * 120); // efek cinematic turun satu-satu
 });
-
-// WAJIB: refresh AOS setelah elemen muncul
-setTimeout(() => {
-  AOS.refresh();
-}, 300);
 
       if (!music) return;
 
