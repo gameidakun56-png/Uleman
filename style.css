@@ -1,216 +1,173 @@
-html, body {
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-}
-
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
+html, body {
+  width: 100%;
+  height: 100%;
   font-family: 'Poppins', sans-serif;
-  background: #000;
-  color: #fff;
+  scroll-behavior: smooth;
 }
 
-/* ===== LOCK SCROLL SAAT COVER ===== */
-.lock-scroll {
+body.lock-scroll {
   overflow: hidden;
-  height: 100vh;
 }
 
-body.lock-scroll .section {
-  position: fixed;
-  top: 100vh;
-  left: 0;
+/* ================= SECTION ================= */
+section {
   width: 100%;
-}
-
-/* ===== COVER ===== */
-.cover {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
-  background: url('assets/bg-cover.jpg') center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-/* ===== BACKGROUND ===== */
-.bg-sambutan { background: url("assets/bg-sambutan.jpg") center/cover no-repeat; }
-.bg-mempelaiwanita { background: url("assets/bg-mempelaiwanita.jpg") center/cover no-repeat; }
-.bg-mempelaipria { background: url("assets/bg-mempelaipria.jpg") center/cover no-repeat; }
-.bg-acara { background: url("assets/bg-acara.jpg") center/cover no-repeat; }
-.bg-galeri { background: url("assets/bg-galeri.jpg") center/cover no-repeat; }
-.bg-kisahcinta { background: url("assets/bg-kisahcinta.jpg") center/cover no-repeat; }
-.bg-kadodigital { background: url("assets/bg-kadodigital.jpg") center/cover no-repeat; }
-.bg-rsvp { background: url("assets/bg-rsvp.jpg") center/cover no-repeat; }
-.bg-ucapan { background: url("assets/bg-ucapan.jpg") center/cover no-repeat; }
-
-/* ===== SECTION ===== */
-.section {
   min-height: 100vh;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
-  position: relative;
-  opacity: 1;
-  transform: none;
 }
 
-/* ===== HIDDEN (AMAN UNTUK AOS) ===== */
-.hidden {
-  display: none;
+/* ================= COVER ================= */
+.cover {
+  background: #000;
 }
 
-/* ===== MEMPELAI ===== */
-.mempelai {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 40px;
+.section {
+  padding: 80px 20px;
 }
 
-.title-top {
-  position: absolute;
-  top: 32px;
-  width: 100%;
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  letter-spacing: 2px;
-}
-
-/* ===== GLASS ===== */
+/* ================= GLASS ================= */
 .glass {
-  background: rgba(255,255,255,0.18);
-  backdrop-filter: blur(10px);
-  border-radius: 22px;
-  padding: 26px 22px;
-  max-width: 360px;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 32px;
   text-align: center;
-  box-shadow: 0 10px 28px rgba(0,0,0,.28);
+  color: #fff;
+  max-width: 420px;
+  width: 100%;
+}
+
+.glass-center {
+  margin: auto;
+}
+
+.glass-bottom {
+  margin-top: auto;
+  margin-bottom: 60px;
+}
+
+.glass-top {
+  margin-top: 60px;
 }
 
 .no-glass {
-  background: none;
   backdrop-filter: none;
-  box-shadow: none;
-  padding: 0;
+  background: transparent;
 }
 
-.glass-bottom { margin-bottom: 40px; }
-.glass-top { margin-top: 60px; }
-.glass-center { align-self: center; }
-
-/* ===== MEMPELAI TEXT ===== */
-.mempelai-glass h3 {
+/* ================= TYPO ================= */
+h1, h2, h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 26px;
 }
 
-.desc {
-  font-size: 13px;
-  opacity: .85;
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+.small {
+  letter-spacing: 2px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.space {
+  height: 24px;
+}
+
+/* ================= BUTTON ================= */
+button {
+  margin-top: 20px;
+  padding: 12px 28px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button.secondary {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+/* ================= MEMPELAI ================= */
+.mempelai {
+  flex-direction: column;
+}
+
+.title-top {
+  color: #fff;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+}
+
+.mempelai-glass h3 {
+  margin-bottom: 10px;
 }
 
 .parent {
   font-size: 14px;
+  opacity: 0.85;
 }
 
-/* ===== IG BUTTON ===== */
+/* ================= INSTAGRAM ================= */
 .ig-btn {
-  margin-top: 18px;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 26px;
-  border-radius: 999px;
-  font-size: 13px;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1px solid #fff;
+  color: #fff;
   text-decoration: none;
-  color: white;
-  background: rgba(255,255,255,0.25);
-  border: 1px solid rgba(255,255,255,0.35);
 }
 
 .ig-btn img {
   width: 18px;
-  filter: brightness(0) invert(1);
+  height: 18px;
 }
 
-/* ===== TEXT ===== */
-h1, h2 { font-family: 'Playfair Display', serif; }
-
-.small {
-  font-size: 14px;
-  letter-spacing: 2px;
-}
-
-.space { height: 30px; }
-
-/* ===== BUTTON ===== */
-button {
-  margin-top: 20px;
-  padding: 12px 25px;
-  border-radius: 30px;
-  border: none;
-  background: white;
-  font-weight: 600;
-}
-
-/* ===== MUSIC ===== */
+/* ================= MUSIC ================= */
 .music-toggle {
   position: fixed;
-  bottom: 18px;
-  right: 18px;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.18);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
 }
 
-.music-toggle.hidden { display: none; }
-
 .music-disc {
-  width: 28px;
-  height: 28px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: rgba(255,255,255,0.3);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  color: #fff;
 }
 
-.music-disc.playing {
-  animation: spin 4s linear infinite;
-}
-
-.music-icon {
-  font-size: 10px;
-  color: white;
-  transform: translateX(1px);
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* ===== FOOTER ===== */
-footer {
-  padding: 16px;
-  text-align: center;
-  font-size: 10px;
-  opacity: .7;
+/* ================= HIDDEN (AMAN AOS) ================= */
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  pointer-events: none;
 }
