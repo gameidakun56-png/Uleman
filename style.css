@@ -21,21 +21,28 @@ body {
   height: 100vh;
 }
 
+body.lock-scroll .section {
+  position: fixed;
+  top: 100vh;
+  left: 0;
+  width: 100%;
+}
+
 /* ===== COVER ===== */
 .cover {
+  position: fixed;
+  inset: 0;
+  width: 100%;
   height: 100vh;
   min-height: 100vh;
-  width: 100%;
-  overflow: hidden;
 
   background: url('assets/bg-cover.jpg') center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  position: fixed;
-  inset: 0;
-  z-index: 999;
+  z-index: 9999;
+  overflow: hidden;
 }
 
 /* ===== BACKGROUND ===== */
