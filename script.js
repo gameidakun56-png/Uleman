@@ -23,7 +23,6 @@ const toggle = document.getElementById("musicToggle");
 if (openBtn && cover) {
   openBtn.addEventListener("click", () => {
     document.body.classList.remove("lock-scroll");
-
     cover.classList.add("hide");
 
     setTimeout(() => {
@@ -36,8 +35,7 @@ if (openBtn && cover) {
       if (music) {
         music.volume = 0.7;
         music.play().catch(() => {});
-        const disc document.querySelector(".music-disc");
-        const icon = document.querySelector(".music-icon");
+      }
 
       if (disc && icon) {
         disc.classList.add("playing");
@@ -46,16 +44,13 @@ if (openBtn && cover) {
 
       if (toggle) {
         toggle.classList.remove("hidden");
-        toggle.innerText = "⏸️";
       }
+
     }, 800);
   });
 }
 
 // ===== MUSIC TOGGLE =====
-const disc = document.querySelector(".music-disc");
-const icon = document.querySelector(".music-icon");
-
 if (toggle && music) {
   toggle.addEventListener("click", () => {
     if (music.paused) {
