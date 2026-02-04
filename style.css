@@ -223,8 +223,8 @@ button.secondary {
 }
 
 .music-disc {
-  width: 32px;
-  height: 32px;
+  width: 29px;
+  height: 29px;
   border-radius: 50%;
   background: rgba(255,255,255,0.3);
 
@@ -238,7 +238,7 @@ button.secondary {
 }
 
 .music-icon {
-  font-size: 13px;
+  font-size: 10px;
   color: white;
   transform: translateX(1px);
   line-height: 1;
