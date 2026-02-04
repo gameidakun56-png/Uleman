@@ -109,14 +109,18 @@ body {
   margin-top: 18px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 22px;
-  border-radius: 30px;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 12px 26px;
+  min-height: 44px;
+
+  border-radius: 999px; /* BULAT SEMPURNA */
   font-size: 13px;
   text-decoration: none;
   color: white;
 
-  background: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.25);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.35);
@@ -126,8 +130,9 @@ body {
 
 /* Icon */
 .ig-btn img {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
+  display: block;
   filter: brightness(0) invert(1);
 }
 
