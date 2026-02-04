@@ -168,6 +168,5 @@ button.secondary {
 /* ================= HIDDEN (AMAN AOS) ================= */
 .hidden {
   opacity: 0;
-  transform: translateY(40px);
   pointer-events: none;
 }
