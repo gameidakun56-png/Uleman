@@ -1,19 +1,13 @@
-/* ===== RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html, body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -22,7 +16,7 @@ body {
   color: #fff;
 }
 
-/* ===== LOCK SCROLL (COVER) ===== */
+/* ===== LOCK SCROLL SAAT COVER ===== */
 .lock-scroll {
   overflow: hidden;
   height: 100vh;
@@ -48,23 +42,6 @@ body.lock-scroll .section {
   z-index: 9999;
 }
 
-/* ===== SECTION UMUM ===== */
-.section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
-  position: relative;
-  z-index: 1;
-}
-
-body:not(.lock-scroll) .section {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-}
-
 /* ===== BACKGROUND ===== */
 .bg-sambutan { background: url("assets/bg-sambutan.jpg") center/cover no-repeat; }
 .bg-mempelaiwanita { background: url("assets/bg-mempelaiwanita.jpg") center/cover no-repeat; }
@@ -75,6 +52,42 @@ body:not(.lock-scroll) .section {
 .bg-kadodigital { background: url("assets/bg-kadodigital.jpg") center/cover no-repeat; }
 .bg-rsvp { background: url("assets/bg-rsvp.jpg") center/cover no-repeat; }
 .bg-ucapan { background: url("assets/bg-ucapan.jpg") center/cover no-repeat; }
+
+/* ===== SECTION ===== */
+.section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+  opacity: 1;
+  transform: none;
+}
+
+/* ===== HIDDEN (AMAN UNTUK AOS) ===== */
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===== MEMPELAI ===== */
+.mempelai {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 40px;
+}
+
+.title-top {
+  position: absolute;
+  top: 32px;
+  width: 100%;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
 
 /* ===== GLASS ===== */
 .glass {
@@ -89,28 +102,59 @@ body:not(.lock-scroll) .section {
 
 .no-glass {
   background: none;
-  box-shadow: none;
   backdrop-filter: none;
+  box-shadow: none;
   padding: 0;
 }
 
-.glass-top { align-self: flex-start; margin-top: 60px; }
 .glass-bottom { margin-bottom: 40px; }
+.glass-top { margin-top: 60px; }
 .glass-center { align-self: center; }
 
-/* ===== TEKS ===== */
-h1, h2 {
+/* ===== MEMPELAI TEXT ===== */
+.mempelai-glass h3 {
   font-family: 'Playfair Display', serif;
+  font-size: 26px;
 }
+
+.desc {
+  font-size: 13px;
+  opacity: .85;
+}
+
+.parent {
+  font-size: 14px;
+}
+
+/* ===== IG BUTTON ===== */
+.ig-btn {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-size: 13px;
+  text-decoration: none;
+  color: white;
+  background: rgba(255,255,255,0.25);
+  border: 1px solid rgba(255,255,255,0.35);
+}
+
+.ig-btn img {
+  width: 18px;
+  filter: brightness(0) invert(1);
+}
+
+/* ===== TEXT ===== */
+h1, h2 { font-family: 'Playfair Display', serif; }
 
 .small {
   font-size: 14px;
   letter-spacing: 2px;
 }
 
-.space {
-  height: 30px;
-}
+.space { height: 30px; }
 
 /* ===== BUTTON ===== */
 button {
@@ -120,93 +164,6 @@ button {
   border: none;
   background: white;
   font-weight: 600;
-  cursor: pointer;
-}
-
-button.secondary {
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-}
-
-/* ===== MEMPELAI FIX TOTAL ===== */
-.mempelai {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0 20px 36px;
-  text-align: center;
-}
-
-.title-top {
-  position: absolute;
-  top: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  letter-spacing: 2px;
-  z-index: 2;
-}
-
-.mempelai-glass {
-  width: 100%;
-  max-width: 340px;
-  text-align: center;
-}
-
-.mempelai-glass h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  margin-bottom: 6px;
-}
-
-.mempelai-glass .desc {
-  font-size: 13px;
-  opacity: 0.85;
-}
-
-.mempelai-glass .parent {
-  font-size: 14px;
-  margin-top: 4px;
-}
-
-/* ===== INSTAGRAM BUTTON FIX ===== */
-.ig-btn {
-  margin-top: 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 22px;
-  max-width: 220px;
-  border-radius: 999px;
-  font-size: 13px;
-  color: white;
-  background: rgba(255,255,255,0.22);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.35);
-  transition: .3s ease;
-}
-
-.ig-btn img {
-  width: 16px;
-  height: 16px;
-  filter: brightness(0) invert(1);
-}
-
-.ig-btn:hover {
-  transform: translateY(-2px);
-}
-
-/* ===== HIDDEN ===== */
-.hidden {
-  opacity: 0;
-  pointer-events: none;
 }
 
 /* ===== MUSIC ===== */
@@ -216,19 +173,15 @@ button.secondary {
   right: 18px;
   width: 46px;
   height: 46px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(255,255,255,0.18);
-  backdrop-filter: blur(10px);
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 9999;
 }
 
-.music-toggle.hidden {
-  display: none;
-}
+.music-toggle.hidden { display: none; }
 
 .music-disc {
   width: 28px;
@@ -236,8 +189,8 @@ button.secondary {
   border-radius: 50%;
   background: rgba(255,255,255,0.3);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .music-disc.playing {
@@ -251,7 +204,7 @@ button.secondary {
 }
 
 @keyframes spin {
-  from { transform: rotate(0); }
+  from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
