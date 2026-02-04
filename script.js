@@ -35,8 +35,13 @@ if (openBtn && cover) {
       cover.style.display = "none";
 
       document.querySelectorAll(".section").forEach(sec => {
-        sec.classList.remove("hidden");
-      });
+  sec.classList.remove("hidden");
+});
+
+// WAJIB: refresh AOS setelah elemen muncul
+setTimeout(() => {
+  AOS.refresh();
+}, 300);
 
       if (!music) return;
 
