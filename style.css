@@ -199,7 +199,7 @@ button.secondary {
   color: white;
 }
 
-/* MUSIC */
+/* ===== MUSIC ===== */
 .music-toggle {
   position: fixed;
   bottom: 18px;
@@ -234,20 +234,20 @@ button.secondary {
 }
 
 .music-disc.playing {
-  animation: spin 5s linear infinite;
+  animation: spin 4s linear infinite;
 }
 
 .music-icon {
   font-size: 10px;
   color: white;
-  transform: translateX(1px);
   line-height: 1;
+  transform: translateX(1px);
   pointer-events: none;
 }
 
 @keyframes spin {
-  from { transform: rotate(0); }
-  to { transform: rotate(360deg); }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 /* ROTATE */
