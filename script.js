@@ -36,16 +36,20 @@ if (openBtn && cover) {
         section.classList.remove("hidden");
       });
 
-      // play music pertama kali
-      if (music) {
-        music.volume = 0.7;
-        music.play().catch(() => {});
-      }
+      if (!music) return;
 
-      // tampilkan toggle & animasi
-      if (toggle) toggle.classList.remove("hidden");
-      if (disc) disc.classList.add("playing");
-      if (icon) icon.innerText = "❚❚";
+      music.volume = 0.7;
+
+      music.play()
+        .then(() => {
+          // 🔥 HANYA JALAN JIKA MUSIK BENAR-BENAR PLAY
+          if (disc) disc.classList.add("playing");
+          if (icon) icon.innerText = "❚❚";
+          if (toggle) toggle.classList.remove("hidden");
+        })
+        .catch(err => {
+          console.warn("Music blocked:", err);
+        });
 
     }, 800);
   });
@@ -55,9 +59,12 @@ if (openBtn && cover) {
 if (toggle && music) {
   toggle.addEventListener("click", () => {
     if (music.paused) {
-      music.play();
-      disc.classList.add("playing");
-      icon.innerText = "❚❚";
+      music.play()
+        .then(() => {
+          disc.classList.add("playing");
+          icon.innerText = "❚❚";
+        })
+        .catch(err => console.warn("Play failed:", err));
     } else {
       music.pause();
       disc.classList.remove("playing");
