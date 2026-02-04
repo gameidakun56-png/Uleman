@@ -31,34 +31,30 @@ if (guestName && guestNameEl) {
 if (openBtn && cover) {
   openBtn.addEventListener("click", () => {
   window.scrollTo(0, 0);
-  document.body.classList.remove("lock-scroll");
+
   cover.classList.add("hide");
 
   setTimeout(() => {
     cover.style.display = "none";
-    cover.style.position = "relative";
+    document.body.classList.remove("lock-scroll");
 
-      document.querySelectorAll(".section").forEach((section, i) => {
-  setTimeout(() => {
-    section.classList.remove("hidden");
-    AOS.refresh();
-  }, i * 120); // efek cinematic turun satu-satu
+    document.querySelectorAll(".section").forEach(section => {
+      section.classList.remove("hidden");
+      section.style.position = "relative";
+      section.style.top = "auto";
+    });
+
+    if (!music) return;
+
+    music.volume = 0.7;
+    music.play().then(() => {
+      disc.classList.add("playing");
+      icon.innerText = "❚❚";
+      toggle.classList.remove("hidden");
+    });
+
+  }, 800);
 });
-
-      if (!music) return;
-
-      music.volume = 0.7;
-      music.play()
-        .then(() => {
-          disc?.classList.add("playing");
-          if (icon) icon.innerText = "❚❚";
-          toggle?.classList.remove("hidden");
-        })
-        .catch(err => console.warn("Music blocked:", err));
-
-    }, 800);
-  });
-}
 
 
 // ===== MUSIC TOGGLE =====
@@ -100,6 +96,3 @@ if (countdownEl) {
 
 
 // ===== FAILSAFE =====
-window.addEventListener("load", () => {
-  document.body.classList.remove("lock-scroll");
-});
