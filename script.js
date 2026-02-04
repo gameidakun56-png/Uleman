@@ -1,4 +1,4 @@
-// ELEMENT
+// ===== ELEMENT =====
 const openBtn = document.getElementById("openInvitation");
 const cover = document.getElementById("cover");
 
@@ -7,84 +7,76 @@ const toggle = document.getElementById("musicToggle");
 const disc   = document.querySelector(".music-disc");
 const icon   = document.querySelector(".music-icon");
 
-// AOS INIT
+// ===== AOS =====
 AOS.init({
-  duration:1200,
-  easing:'ease-in-out-cubic',
-  once:true
+  duration: 1200,
+  easing: "ease-in-out-cubic",
+  once: true,
+  offset: 80
 });
 
-// NAMA TAMU
+// ===== GUEST NAME =====
 const guestNameEl = document.getElementById("guest-name");
 const params = new URLSearchParams(window.location.search);
 const guestName = params.get("to");
 
-if(guestName && guestNameEl){
-  guestNameEl.innerText = guestName.replace(/\+/g," ");
+if (guestName && guestNameEl) {
+  guestNameEl.innerText = guestName.replace(/\+/g, " ");
 }
 
-// OPEN INVITATION
-openBtn?.addEventListener("click",()=>{
+// ===== OPEN INVITATION =====
+openBtn.addEventListener("click", () => {
+  window.scrollTo(0, 0);
+  cover.style.opacity = "0";
 
-  window.scrollTo(0,0);
-
-  cover.classList.add("hide");
-
-  setTimeout(()=>{
-
-    cover.style.display="none";
+  setTimeout(() => {
+    cover.style.display = "none";
     document.body.classList.remove("lock-scroll");
 
-    document.querySelectorAll(".section").forEach(sec=>{
+    document.querySelectorAll(".section").forEach(sec => {
       sec.classList.remove("hidden");
     });
 
-    AOS.refresh();
+    AOS.refreshHard();
 
-    if(!music) return;
-
-    music.volume=0.7;
-
-    music.play().then(()=>{
-      disc?.classList.add("playing");
-      if(icon) icon.innerText="❚❚";
-      toggle?.classList.remove("hidden");
+    music.volume = 0.7;
+    music.play().then(() => {
+      disc.classList.add("playing");
+      icon.innerText = "❚❚";
+      toggle.classList.remove("hidden");
     });
 
-  },800);
-
+  }, 700);
 });
 
-// MUSIC TOGGLE
-toggle?.addEventListener("click",()=>{
-
-  if(music.paused){
-    music.play().then(()=>{
-      disc?.classList.add("playing");
-      if(icon) icon.innerText="❚❚";
-    });
-  }else{
+// ===== MUSIC TOGGLE =====
+toggle.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    disc.classList.add("playing");
+    icon.innerText = "❚❚";
+  } else {
     music.pause();
-    disc?.classList.remove("playing");
-    if(icon) icon.innerText="▶";
+    disc.classList.remove("playing");
+    icon.innerText = "▶";
   }
-
 });
 
-// COUNTDOWN
+// ===== COUNTDOWN =====
 const countdownEl = document.getElementById("countdown");
 const targetDate = new Date("2026-03-24T08:00:00").getTime();
 
-if(countdownEl){
-  setInterval(()=>{
+if (countdownEl) {
+  setInterval(() => {
     const diff = targetDate - Date.now();
-    if(diff<=0) return;
+    if (diff <= 0) return;
 
-    const d=Math.floor(diff/86400000);
-    const h=Math.floor((diff/3600000)%24);
-    const m=Math.floor((diff/60000)%60);
-    const s=Math.floor((diff/1000)%60);
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff / 3600000) % 24);
+    const m = Math.floor((diff / 60000) % 60);
+    const s = Math.floor((diff / 1000) % 60);
 
-    countdownEl.innerHTML=`${d} Hari • ${h} Jam • ${m} Menit • ${s} Detik`;
-  },1000);
+    countdownEl.innerHTML =
+      `${d} Hari • ${h} Jam • ${m} Menit • ${s} Detik`;
+  }, 1000);
 }
