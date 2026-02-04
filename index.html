@@ -128,23 +128,17 @@
   </div>
 </section>
 
-<!-- MUSIC -->
-<div id="musicToggle" class="music-toggle hidden">
-  <div class="music-disc">
-    <span class="music-icon">▶</span>
-  </div>
-</div>
-
-<audio id="bgMusic" src="music.mp3" loop></audio>
-<audio id="bgMusic" loop>
-  <source src="assets/music/music.mp3" type="audio/mpeg">
-</audio>
-
-<button id="musicToggle" class="music-btn hidden">
+<!-- MUSIC TOGGLE -->
+<button id="musicToggle" class="music-toggle hidden" aria-label="Toggle Music">
   <div class="music-disc">
     <span class="music-icon">▶</span>
   </div>
 </button>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" loop preload="auto" playsinline>
+  <source src="assets/music/music.mp3" type="audio/mpeg">
+</audio>
 
 <footer>
   design by <strong>@oridarkmode</strong>
