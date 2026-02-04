@@ -59,6 +59,7 @@ body.lock-scroll .section {
 /* ===== SECTION ===== */
 .section {
   opacity: 1;
+  transform: none;
   transition: opacity .6s ease;
   min-height: 100vh;
   display: flex;
