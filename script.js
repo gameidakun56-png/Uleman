@@ -36,13 +36,13 @@ if (openBtn && cover) {
       if (music) {
         music.volume = 0.7;
         music.play().catch(() => {});
-        const disc = document.querySelector(".music-disc");
-const icon = document.querySelector(".music-icon");
+        const disc document.querySelector(".music-disc");
+        const icon = document.querySelector(".music-icon");
 
-if (disc && icon) {
-  disc.classList.add("playing");
-  icon.innerText = "❚❚";
-}
+        if (disc && icon) {
+          disc.classList.add("playing");
+          icon.innerText = "❚❚";
+        }
 
       if (toggle) {
         toggle.classList.remove("hidden");
