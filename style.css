@@ -200,6 +200,28 @@ button.secondary {
 }
 
 /* MUSIC */
+.music-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.music-toggle.hidden {
+  display: none;
+}
+
 .music-btn {
   position: fixed;
   bottom: 22px;
