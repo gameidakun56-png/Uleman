@@ -1,3 +1,14 @@
+// ===== ELEMENT =====
+const openBtn = document.getElementById("openInvitation");
+const cover = document.getElementById("cover");
+
+const music = document.getElementById("bgMusic");
+const toggle = document.getElementById("musicToggle");
+const disc = document.querySelector(".music-disc");
+const icon = document.querySelector(".music-icon");
+
+
+// ===== AOS =====
 AOS.init({
   duration: 1000,
   once: true
@@ -12,13 +23,6 @@ if (guestName && guestNameEl) {
   guestNameEl.innerText = guestName.replace(/\+/g, " ");
 }
 
-// ===== ELEMENT =====
-const openBtn = document.getElementById("openInvitation");
-const cover = document.getElementById("cover");
-const sambutan = document.getElementById("sambutan");
-const music = document.getElementById("bgMusic");
-const toggle = document.getElementById("musicToggle");
-
 // ===== OPEN INVITATION =====
 if (openBtn && cover) {
   openBtn.addEventListener("click", () => {
@@ -32,19 +36,16 @@ if (openBtn && cover) {
         section.classList.remove("hidden");
       });
 
+      // play music pertama kali
       if (music) {
         music.volume = 0.7;
         music.play().catch(() => {});
       }
 
-      if (disc && icon) {
-        disc.classList.add("playing");
-        icon.innerText = "❚❚";
-      }
-
-      if (toggle) {
-        toggle.classList.remove("hidden");
-      }
+      // tampilkan toggle & animasi
+      if (toggle) toggle.classList.remove("hidden");
+      if (disc) disc.classList.add("playing");
+      if (icon) icon.innerText = "❚❚";
 
     }, 800);
   });
