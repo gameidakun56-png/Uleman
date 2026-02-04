@@ -2,17 +2,18 @@
 const openBtn = document.getElementById("openInvitation");
 const cover = document.getElementById("cover");
 
-const music = document.getElementById("bgMusic");
+const music  = document.getElementById("bgMusic");
 const toggle = document.getElementById("musicToggle");
-const disc = document.querySelector(".music-disc");
-const icon = document.querySelector(".music-icon");
+const disc   = document.querySelector(".music-disc");
+const icon   = document.querySelector(".music-icon");
 
 
-// ===== AOS =====
+// ===== AOS INIT =====
 AOS.init({
   duration: 1000,
   once: true
 });
+
 
 // ===== NAMA TAMU =====
 const guestNameEl = document.getElementById("guest-name");
@@ -23,6 +24,7 @@ if (guestName && guestNameEl) {
   guestNameEl.innerText = guestName.replace(/\+/g, " ");
 }
 
+
 // ===== OPEN INVITATION =====
 if (openBtn && cover) {
   openBtn.addEventListener("click", () => {
@@ -32,28 +34,25 @@ if (openBtn && cover) {
     setTimeout(() => {
       cover.style.display = "none";
 
-      document.querySelectorAll(".section").forEach(section => {
-        section.classList.remove("hidden");
+      document.querySelectorAll(".section").forEach(sec => {
+        sec.classList.remove("hidden");
       });
 
       if (!music) return;
 
       music.volume = 0.7;
-
       music.play()
         .then(() => {
-          // 🔥 HANYA JALAN JIKA MUSIK BENAR-BENAR PLAY
-          if (disc) disc.classList.add("playing");
+          disc?.classList.add("playing");
           if (icon) icon.innerText = "❚❚";
-          if (toggle) toggle.classList.remove("hidden");
+          toggle?.classList.remove("hidden");
         })
-        .catch(err => {
-          console.warn("Music blocked:", err);
-        });
+        .catch(err => console.warn("Music blocked:", err));
 
     }, 800);
   });
 }
+
 
 // ===== MUSIC TOGGLE =====
 if (toggle && music) {
@@ -61,17 +60,18 @@ if (toggle && music) {
     if (music.paused) {
       music.play()
         .then(() => {
-          disc.classList.add("playing");
-          icon.innerText = "❚❚";
+          disc?.classList.add("playing");
+          if (icon) icon.innerText = "❚❚";
         })
         .catch(err => console.warn("Play failed:", err));
     } else {
       music.pause();
-      disc.classList.remove("playing");
-      icon.innerText = "▶";
+      disc?.classList.remove("playing");
+      if (icon) icon.innerText = "▶";
     }
   });
 }
+
 
 // ===== COUNTDOWN =====
 const countdownEl = document.getElementById("countdown");
@@ -80,7 +80,7 @@ const targetDate = new Date("2026-03-24T08:00:00").getTime();
 if (countdownEl) {
   setInterval(() => {
     const diff = targetDate - Date.now();
-    if (diff < 0) return;
+    if (diff <= 0) return;
 
     const d = Math.floor(diff / 86400000);
     const h = Math.floor((diff / 3600000) % 24);
@@ -91,7 +91,8 @@ if (countdownEl) {
   }, 1000);
 }
 
-// ===== ANTI STUCK =====
+
+// ===== FAILSAFE =====
 window.addEventListener("load", () => {
   document.body.classList.remove("lock-scroll");
 });
