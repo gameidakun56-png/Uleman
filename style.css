@@ -18,24 +18,24 @@ body {
 
 .lock-scroll {
   overflow: hidden;
+  height: 100vh;
 }
 
 /* ===== COVER ===== */
 .cover {
   height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
   background: url('assets/bg-cover.jpg') center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity .8s ease, transform .8s ease;
-  position: relative;
-  z-index: 10;
-}
 
-.cover.hide {
-  opacity: 0;
-  transform: scale(1.05);
-  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
 }
 
 /* ===== BACKGROUND ===== */
