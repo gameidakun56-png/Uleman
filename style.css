@@ -1,287 +1,163 @@
-html, body {
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
+html,body{
+width:100%;
+height:100%;
+overflow-x:hidden;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #000;
-  color: #fff;
+body{
+font-family:'Poppins',sans-serif;
+background:#000;
+color:#fff;
 }
 
-.lock-scroll {
-  overflow: hidden;
-  height: 100vh;
+.lock-scroll{
+overflow:hidden;
+height:100vh;
 }
 
-body.lock-scroll .section {
-  position: fixed;
-  top: 100vh;
-  left: 0;
-  width: 100%;
+/* COVER */
+.cover{
+position:fixed;
+inset:0;
+height:100vh;
+background:url('assets/bg-cover.jpg') center/cover no-repeat;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
 }
 
-/* ===== COVER ===== */
-.cover {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
-  min-height: 100vh;
-
-  background: url('assets/bg-cover.jpg') center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  z-index: 9999;
-  overflow: hidden;
+.cover.hide{
+opacity:0;
+transform:scale(1.05);
+transition:.8s;
+pointer-events:none;
 }
 
-/* ===== BACKGROUND ===== */
-.bg-sambutan { background: url("assets/bg-sambutan.jpg") center/cover no-repeat; }
-.bg-mempelaiwanita { background: url("assets/bg-mempelaiwanita.jpg") center/cover no-repeat; }
-.bg-mempelaipria { background: url("assets/bg-mempelaipria.jpg") center/cover no-repeat; }
-.bg-acara { background: url("assets/bg-acara.jpg") center/cover no-repeat; }
-.bg-galeri { background: url("assets/bg-galeri.jpg") center/cover no-repeat; }
-.bg-kisahcinta { background: url("assets/bg-kisahcinta.jpg") center/cover no-repeat; }
-.bg-kadodigital { background: url("assets/bg-kadodigital.jpg") center/cover no-repeat; }
-.bg-rsvp { background: url("assets/bg-rsvp.jpg") center/cover no-repeat; }
-.bg-ucapan { background: url("assets/bg-ucapan.jpg") center/cover no-repeat; }
-
-/* ===== SECTION ===== */
-.section {
-  opacity: 1;
-  transform: none;
-  transition: opacity .6s ease;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
-  position: relative;
-  z-index: 1;
+/* SECTION */
+.section{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px 20px;
+position:relative;
 }
 
-/* ===== MEMPELAI SECTION (FIX & RAPAPIH) ===== */
-.mempelai {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;   /* CENTER HORIZONTAL */
-  align-items: flex-end;     /* BAWAH */
-  padding: 0 20px 32px;
+/* BACKGROUND */
+.bg-sambutan{background:url("assets/bg-sambutan.jpg") center/cover no-repeat;}
+.bg-mempelaiwanita{background:url("assets/bg-mempelaiwanita.jpg") center/cover no-repeat;}
+.bg-mempelaipria{background:url("assets/bg-mempelaipria.jpg") center/cover no-repeat;}
+.bg-acara{background:url("assets/bg-acara.jpg") center/cover no-repeat;}
+.bg-galeri{background:url("assets/bg-galeri.jpg") center/cover no-repeat;}
+.bg-kisahcinta{background:url("assets/bg-kisahcinta.jpg") center/cover no-repeat;}
+.bg-kadodigital{background:url("assets/bg-kadodigital.jpg") center/cover no-repeat;}
+.bg-rsvp{background:url("assets/bg-rsvp.jpg") center/cover no-repeat;}
+.bg-ucapan{background:url("assets/bg-ucapan.jpg") center/cover no-repeat;}
+
+.hidden{
+display:none;
 }
 
-/* Judul atas */
-.title-top {
-  position: absolute;
-  top: 32px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  letter-spacing: 2px;
-  z-index: 2;
+/* GLASS */
+.glass{
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(10px);
+border-radius:22px;
+padding:26px 22px;
+max-width:360px;
+text-align:center;
+box-shadow:0 10px 28px rgba(0,0,0,.28);
 }
 
-/* Glass card bawah */
-.mempelai-glass {
-  width: 100%;
-  max-width: 360px;
-  margin: 0 auto;
-  text-align: center;
-  animation: none !important; /* MATIKAN FLOAT */
+.no-glass{
+background:none;
+backdrop-filter:none;
+box-shadow:none;
+padding:0;
 }
 
-/* Nama */
-.mempelai-glass h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  margin-bottom: 6px;
+.glass-top{align-self:flex-start;margin-top:60px;}
+.glass-bottom{margin-bottom:40px;}
+.glass-center{align-self:center;}
+
+h1,h2{font-family:'Playfair Display',serif;}
+
+.small{
+font-size:14px;
+letter-spacing:2px;
 }
 
-/* Deskripsi */
-.mempelai-glass .desc {
-  font-size: 13px;
-  opacity: 0.85;
+.space{height:30px;}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+border-radius:30px;
+border:none;
+background:white;
+font-weight:600;
+cursor:pointer;
 }
 
-.mempelai-glass .parent {
-  font-size: 14px;
-  margin-top: 4px;
+button.secondary{
+background:transparent;
+border:1px solid white;
+color:white;
 }
 
-/* ===== INSTAGRAM BUTTON ===== */
-.ig-btn {
-  margin-top: 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  padding: 12px 26px;
-  min-height: 44px;
-
-  border-radius: 999px; /* BULAT SEMPURNA */
-  font-size: 13px;
-  text-decoration: none;
-  color: white;
-
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.35);
-
-  transition: all .3s ease;
+/* MUSIC */
+.music-toggle{
+position:fixed;
+bottom:18px;
+right:18px;
+width:46px;
+height:46px;
+display:flex;
+justify-content:center;
+align-items:center;
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(10px);
+border-radius:50%;
+z-index:9999;
 }
 
-/* Icon */
-.ig-btn img {
-  width: 18px;
-  height: 18px;
-  display: block;
-  filter: brightness(0) invert(1);
+.music-toggle.hidden{display:none;}
+
+.music-disc{
+width:29px;
+height:29px;
+border-radius:50%;
+background:rgba(255,255,255,.3);
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
-/* Hover */
-.ig-btn:hover {
-  background: rgba(255,255,255,0.28);
-  transform: translateY(-2px);
+.music-disc.playing{
+animation:spin 4s linear infinite;
 }
 
-.hidden {
-  opacity: 0;
-  pointer-events: none;
+.music-icon{
+font-size:10px;
+color:white;
+pointer-events:none;
 }
 
-/* ===== GLASS ===== */
-.glass {
-  background: rgba(255,255,255,0.18);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 22px;
-  padding: 26px 22px;
-  max-width: 360px;
-  text-align: center;
-  box-shadow: 0 10px 28px rgba(0,0,0,.28);
+@keyframes spin{
+from{transform:rotate(0)}
+to{transform:rotate(360deg)}
 }
 
-.no-glass {
-  background: none;
-  backdrop-filter: none;
-  box-shadow: none;
-  padding: 0;
-}
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-.glass-top { align-self: flex-start; margin-top: 60px; }
-.glass-bottom { margin-bottom: 40px; }
-.glass-center { align-self: center; }
-
-h1, h2 { font-family: 'Playfair Display', serif; }
-
-.small {
-  font-size: 14px;
-  letter-spacing: 2px;
-}
-
-.space { height: 30px; }
-
-button {
-  margin-top: 20px;
-  padding: 12px 25px;
-  border-radius: 30px;
-  border: none;
-  background: white;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-button.secondary {
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-}
-
-/* ===== MUSIC ===== */
-.music-toggle {
-  position: fixed;
-  bottom: 18px;
-  right: 18px;
-  width: 46px;
-  height: 46px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: rgba(255,255,255,0.18);
-  backdrop-filter: blur(10px);
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.25);
-  z-index: 9999;
-}
-
-.music-toggle.hidden {
-  display: none;
-}
-
-.music-disc {
-  width: 29px;
-  height: 29px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.3);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.music-disc.playing {
-  animation: spin 4s linear infinite;
-}
-
-.music-icon {
-  font-size: 10px;
-  color: white;
-  line-height: 1;
-  transform: translateX(1px);
-  pointer-events: none;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-/* ROTATE */
-.music-disc.playing {
-  animation: spin 4s linear infinite;
-}
-
-/* ANIMASI */
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-/* FOOTER */
-footer {
-  padding: 16px;
-  text-align: center;
-  font-size: 10px;
-  opacity: .7;
+footer{
+padding:16px;
+text-align:center;
+font-size:10px;
+opacity:.7;
 }
