@@ -206,7 +206,6 @@ button.secondary {
   right: 18px;
   width: 46px;
   height: 46px;
-  z-index: 9999;
 
   display: flex;
   align-items: center;
@@ -214,10 +213,9 @@ button.secondary {
 
   background: rgba(255,255,255,0.18);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.25);
+  z-index: 9999;
 }
 
 .music-toggle.hidden {
@@ -228,8 +226,7 @@ button.secondary {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-
-  background: rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.3);
 
   display: flex;
   align-items: center;
@@ -242,15 +239,15 @@ button.secondary {
 
 .music-icon {
   font-size: 13px;
-  color: #fff;
+  color: white;
+  transform: translateX(1px);
   line-height: 1;
-  transform: translateX(1px); /* koreksi optik icon ▶ */
   pointer-events: none;
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
 }
 
 /* ROTATE */
