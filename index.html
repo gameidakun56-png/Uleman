@@ -8,7 +8,7 @@
   <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  <!-- Fonts -->
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
@@ -16,9 +16,9 @@
 
 <body class="lock-scroll">
 
-<!-- ================= COVER ================= -->
+<!-- ===== COVER ===== -->
 <section id="cover" class="cover">
-  <div class="glass">
+  <div class="glass glass-center" data-aos="fade-up">
     <p class="small">The Wedding Of</p>
     <h1>Khoiril & Nisa</h1>
 
@@ -31,55 +31,102 @@
   </div>
 </section>
 
-<!-- ================= MAIN CONTENT (HIDDEN) ================= -->
-<main id="mainContent" class="hidden">
+<!-- ===== SAMBUTAN ===== -->
+<section id="sambutan" class="section bg-sambutan hidden">
+  <div class="glass glass-bottom" data-aos="fade-up">
+    <p class="small">The Wedding Of</p>
+    <h1>Khoiril & Nisa</h1>
 
-  <!-- SAMBUTAN -->
-  <section class="section bg-sambutan">
-    <div class="glass glass-bottom" data-aos="fade-up">
-      <p class="small">The Wedding Of</p>
-      <h1>Khoiril & Nisa</h1>
-      <div id="countdown"></div>
-    </div>
-  </section>
+    <div id="countdown"></div>
 
-  <!-- MEMPELAI WANITA -->
-  <section class="section mempelai bg-mempelaiwanita">
-    <h2 class="mempelai-title">Mempelai Wanita</h2>
+    <button class="secondary">Simpan ke Kalender</button>
+  </div>
+</section>
 
-    <div class="mempelai-card" data-aos="fade-up">
-      <h3>Anis Hidayanti</h3>
-      <p class="desc">Putri Pertama dari</p>
-      <p class="parent">Bpk. Mempelai & Ibu Mempelai</p>
+<!-- ===== MEMPELAI ===== -->
+<section class="section mempelai bg-mempelaiwanita">
+  <h2 class="title-top">Mempelai Wanita</h2>
 
-      <a href="https://instagram.com/USERNAME_WANITA"
-         target="_blank"
-         class="ig-btn">
-        <img src="assets/icon/instagram.svg">
-        <span>@USERNAME_WANITA</span>
-      </a>
-    </div>
-  </section>
+  <div class="mempelai-glass glass" data-aos="fade-up">
+    <h3>Anis Hidayanti</h3>
+    <p class="desc">Putri Pertama dari</p>
+    <p class="parent">Bpk. Mempelai & Ibu Mempelai</p>
 
-  <!-- MEMPELAI PRIA -->
-  <section class="section mempelai bg-mempelaipria">
-    <h2 class="mempelai-title">Mempelai Pria</h2>
+    <!-- GANTI LINK INSTAGRAM DI SINI -->
+    <a href="https://instagram.com/USERNAME_WANITA" 
+       target="_blank" 
+       class="ig-btn">
+      <img src="assets/icon/instagram.svg" alt="Instagram">
+      <span>@USERNAME_WANITA</span>
+    </a>
+  </div>
+</section>
 
-    <div class="mempelai-card" data-aos="fade-up">
-      <h3>Khoiril Anam</h3>
-      <p class="desc">Putra Pertama dari</p>
-      <p class="parent">Bpk. Mempelai & Ibu Mempelai</p>
+<section class="section mempelai bg-mempelaipria">
+  <h2 class="title-top">Mempelai Pria</h2>
 
-      <a href="https://instagram.com/USERNAME_PRIA"
-         target="_blank"
-         class="ig-btn">
-        <img src="assets/icon/instagram.svg">
-        <span>@USERNAME_PRIA</span>
-      </a>
-    </div>
-  </section>
+  <div class="mempelai-glass glass" data-aos="fade-up">
+    <h3>Khoiril Anam</h3>
+    <p class="desc">Putra Pertama dari</p>
+    <p class="parent">Bpk. Mempelai & Ibu Mempelai</p>
 
-</main>
+    <!-- GANTI LINK INSTAGRAM DI SINI -->
+    <a href="https://instagram.com/USERNAME_PRIA" 
+       target="_blank" 
+       class="ig-btn">
+      <img src="assets/icon/instagram.svg" alt="Instagram">
+      <span>@USERNAME_PRIA</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== ACARA ===== -->
+<section class="section bg-acara hidden">
+  <div class="glass glass-top" data-aos="fade-up">
+    <h2>Acara</h2>
+    <p>Akad & Resepsi</p>
+  </div>
+</section>
+
+<!-- ===== GALERI ===== -->
+<section class="section bg-galeri hidden">
+  <div class="glass glass-top" data-aos="fade-up">
+    <h2>Galeri</h2>
+    <p>Foto Prewedding</p>
+  </div>
+</section>
+
+<!-- ===== KISAH CINTA ===== -->
+<section class="section bg-kisahcinta hidden">
+  <div class="glass glass-top" data-aos="fade-up">
+    <h2>Kisah Cinta</h2>
+    <p>Cerita singkat perjalanan kami</p>
+  </div>
+</section>
+
+<!-- ===== KADO ===== -->
+<section class="section bg-kadodigital hidden">
+  <div class="glass glass-top" data-aos="fade-up">
+    <h2>Kado Digital</h2>
+    <p>Rekening / QRIS</p>
+  </div>
+</section>
+
+<!-- ===== RSVP ===== -->
+<section class="section bg-rsvp hidden">
+  <div class="glass glass-top" data-aos="fade-up">
+    <h2>RSVP</h2>
+    <p>Konfirmasi Kehadiran</p>
+  </div>
+</section>
+
+<!-- ===== UCAPAN (TANPA GLASS) ===== -->
+<section class="section bg-ucapan hidden">
+  <div class="glass no-glass" data-aos="fade-up">
+    <h2>Ucapan Terimakasih</h2>
+    <p>Doa & harapan</p>
+  </div>
+</section>
 
 <!-- MUSIC -->
 <audio id="bgMusic" loop>
@@ -88,7 +135,10 @@
 
 <button id="musicToggle" class="music-btn hidden">🔊</button>
 
-<!-- SCRIPT -->
+<footer>
+  design by <strong>@oridarkmode</strong>
+</footer>
+
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="script.js"></script>
 </body>
