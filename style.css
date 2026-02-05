@@ -142,8 +142,22 @@ body {
   transform: translateY(-2px);
 }
 
+/* Ganti penggunaan display:none pada .hidden dengan transition-friendly hidden */
 .hidden {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 360ms ease, transform 360ms ease, visibility 0s linear 360ms;
+}
+
+/* Saat di-unhide (kelas .hidden dihapus), elemen menjadi terlihat */
+.section {
+  /* pastikan nilai default untuk section */
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 360ms ease, transform 360ms ease;
 }
 
 /* ===== GLASS ===== */
@@ -273,4 +287,5 @@ footer {
 button:focus, .music-toggle:focus {
   outline: 2px solid rgba(255,255,255,0.9);
   outline-offset: 2px;
+
 }
