@@ -2,55 +2,83 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <title>The Wedding Of Khoiril &amp; Nisa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Undangan pernikahan Khoiril & Nisa — informasi acara, galeri, RSVP, dan kado digital." />
+
+  <title>The Wedding Of Khoiril &amp; Nisa</title>
+  <meta name="description" content="Undangan pernikahan Khoiril &amp; Nisa — informasi acara, galeri, RSVP, dan kado digital." />
   <meta name="event-date" content="2026-03-24T08:00:00" />
 
-  <!-- Preconnect for Google Fonts -->
+  <!-- Preconnect Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap"
+    rel="stylesheet"
+  />
 
   <!-- AOS -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body class="lock-scroll">
-
   <!-- COVER -->
   <header id="cover" class="cover" role="banner">
     <div class="glass glass-center" data-aos="fade-up" data-aos-duration="900">
       <p class="small" data-aos="fade-right" data-aos-delay="100">The Wedding Of</p>
       <h1 data-aos="fade-right" data-aos-delay="200">Khoiril &amp; Nisa</h1>
 
-      <div class="space"></div>
+      <div class="space" aria-hidden="true"></div>
 
       <p class="small" data-aos="fade-left" data-aos-delay="300">Dear,</p>
       <h3 id="guest-name" data-aos="fade-left" data-aos-delay="400">Tamu Undangan</h3>
 
-      <button id="openInvitation" type="button" aria-controls="main" aria-expanded="false"
-              data-aos="zoom-in" data-aos-delay="550">Buka Undangan</button>
+      <button
+        id="openInvitation"
+        type="button"
+        aria-controls="main"
+        aria-expanded="false"
+        data-aos="zoom-in"
+        data-aos-delay="550"
+      >
+        Buka Undangan
+      </button>
     </div>
   </header>
 
   <main id="main" tabindex="-1">
     <!-- SAMBUTAN -->
-    <section id="sambutan" class="section bg-sambutan hidden" aria-labelledby="sambutan-title" data-aos="fade-up" data-aos-delay="100">
+    <section
+      id="sambutan"
+      class="section bg-sambutan hidden"
+      aria-labelledby="sambutan-title"
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
       <div class="glass glass-bottom" data-aos="fade-up" data-aos-delay="200">
         <p class="small">The Wedding Of</p>
         <h1 id="sambutan-title">Khoiril &amp; Nisa</h1>
 
-        <div id="countdown" aria-live="polite" data-target="2026-03-24T08:00:00" data-aos="flip-left" data-aos-delay="300"></div>
+        <div
+          id="countdown"
+          aria-live="polite"
+          data-target="2026-03-24T08:00:00"
+          data-aos="flip-left"
+          data-aos-delay="300"
+        ></div>
 
-        <button class="secondary" type="button" data-aos="fade-up" data-aos-delay="400">Simpan ke Kalender</button>
+        <button id="addToCalendar" class="secondary" type="button" data-aos="fade-up" data-aos-delay="400">
+          Simpan ke Kalender
+        </button>
       </div>
     </section>
 
     <!-- MEMPELAI WANITA -->
-    <section class="section mempelai bg-mempelaiwanita hidden" aria-labelledby="mempelai-w-title" data-aos="fade-up" data-aos-delay="120">
+    <section
+      class="section mempelai bg-mempelaiwanita hidden"
+      aria-labelledby="mempelai-w-title"
+      data-aos="fade-up"
+      data-aos-delay="120"
+    >
       <h2 id="mempelai-w-title" class="title-top">MEMPELAI WANITA</h2>
 
       <div class="glass mempelai-glass glass-bottom" data-aos="fade-up" data-aos-delay="200">
@@ -58,19 +86,28 @@
         <p class="desc">Putri Pertama dari</p>
         <p class="parent">Bapak Junaidi &amp; Ibu Siti Zulaikho</p>
 
-        <!-- GANTI LINK INSTAGRAM DI SINI -->
-        <a href="https://www.instagram.com/enchalightmode?igsh=bHFjbmNjcXZ5M3Fv"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="ig-btn" data-aos="fade-up" data-aos-delay="300">
-          <img src="assets/icon/instagram.svg" alt="Instagram Khoirun Nisa">
+        <a
+          href="https://www.instagram.com/enchalightmode?igsh=bHFjbmNjcXZ5M3Fv"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="ig-btn"
+          data-aos="fade-up"
+          data-aos-delay="300"
+          aria-label="Buka Instagram Khoirun Nisa"
+        >
+          <img src="assets/icon/instagram.svg" alt="" aria-hidden="true" />
           <span>Instagram</span>
         </a>
       </div>
     </section>
 
     <!-- MEMPELAI PRIA -->
-    <section class="section mempelai bg-mempelaipria hidden" aria-labelledby="mempelai-m-title" data-aos="fade-up" data-aos-delay="140">
+    <section
+      class="section mempelai bg-mempelaipria hidden"
+      aria-labelledby="mempelai-m-title"
+      data-aos="fade-up"
+      data-aos-delay="140"
+    >
       <h2 id="mempelai-m-title" class="title-top">MEMPELAI PRIA</h2>
 
       <div class="glass mempelai-glass glass-bottom" data-aos="fade-up" data-aos-delay="220">
@@ -78,12 +115,16 @@
         <p class="desc">Putra Pertama dari</p>
         <p class="parent">Bapak Edi Suyanto &amp; Ibu Lusyati</p>
 
-        <!-- GANTI LINK INSTAGRAM DI SINI -->
-        <a href="https://www.instagram.com/oridarkmode?utm_source=qr&igsh=MTM1aGpta2p0YWs2NA=="
-           target="_blank"
-           rel="noopener noreferrer"
-           class="ig-btn" data-aos="fade-up" data-aos-delay="320">
-          <img src="assets/icon/instagram.svg" alt="Instagram Khoiril Murbaist">
+        <a
+          href="https://www.instagram.com/oridarkmode?utm_source=qr&igsh=MTM1aGpta2p0YWs2NA=="
+          target="_blank"
+          rel="noopener noreferrer"
+          class="ig-btn"
+          data-aos="fade-up"
+          data-aos-delay="320"
+          aria-label="Buka Instagram Khoiril Murbaist"
+        >
+          <img src="assets/icon/instagram.svg" alt="" aria-hidden="true" />
           <span>Instagram</span>
         </a>
       </div>
@@ -139,13 +180,19 @@
   </main>
 
   <!-- MUSIC -->
-  <button id="musicToggle" class="music-toggle hidden" aria-label="Play music" aria-pressed="false">
-    <div class="music-disc" role="img" aria-hidden="true" tabindex="-1">
+  <button
+    id="musicToggle"
+    class="music-toggle hidden"
+    type="button"
+    aria-label="Play music"
+    aria-pressed="false"
+  >
+    <span class="music-disc" aria-hidden="true">
       <span class="music-icon">▶</span>
-    </div>
+    </span>
   </button>
 
-  <audio id="bgMusic" loop aria-label="Musik Latar">
+  <audio id="bgMusic" loop preload="auto" aria-label="Musik Latar">
     <source src="assets/music/music.mp3" type="audio/mpeg" />
   </audio>
 
@@ -155,6 +202,5 @@
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
   <script src="script.js" defer></script>
-  <!-- Inline AOS.init() dipindahkan ke script.js untuk konfigurasi lebih lengkap -->
 </body>
 </html>
